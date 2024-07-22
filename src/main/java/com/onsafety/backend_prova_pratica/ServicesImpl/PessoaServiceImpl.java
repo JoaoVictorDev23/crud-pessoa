@@ -53,9 +53,6 @@ public class PessoaServiceImpl implements PessoaService {
     @Override
     public List<PessoaDTO> getAllPessoas() {
         List<Pessoa> pessoas = pessoaRepository.findAll();
-        if (pessoas.isEmpty()) {
-            throw new NoFoundException("Nenhuma pessoa encontrado.");
-        }
         return pessoas.stream().map(PessoaDTO::new).collect(Collectors.toList());
     }
 
